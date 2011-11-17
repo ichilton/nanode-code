@@ -2,3 +2,5 @@ Collection of code samples for the Nanode (Arduino Compatible) boards.
 
 See http://ichilton.github.com/nanode for more information.
 
+* nanode_rf_init - An initial/test sketch for the Nanode RF board. Copies the MAC address from the 11AA02E48 and writes it to an empty MCP79410 and tests the ENC28J60 ethernet interface with DHCP.
+

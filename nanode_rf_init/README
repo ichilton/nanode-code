@@ -1,0 +1,45 @@
+Code to read the unique MAC address from a 11AA02E48 and write it to a MCP79410
+
+Ian Chilton <ian@ichilton.co.uk>
+09/11/2011
+
+The MCP7941x is an I2C RTC chip which also includes 1K of EEPROM,
+64 bytes of SRAM and a Unique ID.
+
+There are 3 flavours of the MCP7941x, which differ in the Unique ID content:
+MCP79410 - Blank
+MCP79411 - EUI-48 Mac Address
+MCP79412 - EUI-64 Mac Address
+
+This code is mainly aimed at the MCP79410 which has no ID in - it's purpose is to
+read the unique ID from an onboard 11AA02E48 and write it to the unique area in
+the MCP79410 so it effectively becomes a MCP79411.
+
+If the code detects a mac address is already there (0x2b isn't 0xff), it won't do anything.
+
+If it detects 0x00 or 0xff from the 11AA02E48, it assumes no 11AA02E48 is present and stops.
+
+If the MCP7941x is blank and it successfully gets a mac from the 11AA02E48 then it
+will unlock the unique id area and write in the mac address obtained from the 11AA02E48.
+
+After write, hitting the reset should initiate the process again, but should now find a
+mac address in the MCP7941x.
+
+All of the above procedure is ran once on boot. After that, it will flash the red and green
+led's (digital pins 5 & 6) and give serial output on 9600 baud to show life.
+
+The mcp7941x chip uses an I2C address of 0x57 for the EEPROM and 0x6f for the RTC and SRAM
+(the Wire library takes care of adding a LSB for read/write selection)
+
+The 11AA02E48 should be on digital pin 7.
+
+MAC addresses seem to start with 00:04:A3 which is correctly from their
+allocation: http://hwaddress.com/?q=microchip
+
+PLEASE NOTE: This requires Andrew Lindsay's NanodeMAC and EtherShield libraries in your
+Arduino libraries directory.
+
+You can download them from here:
+https://github.com/thiseldo/NanodeMAC
+https://github.com/thiseldo/EtherShield
+

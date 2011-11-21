@@ -156,6 +156,10 @@ void setup()
   Wire.begin();
   Serial.begin(9600);
 
+  // Turn LED's On:
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  
   Serial.println("Welcome to Nanode RF");
   Serial.println();
   

@@ -38,7 +38,10 @@ The 11AA02E48 should be on digital pin 7.
 MAC addresses seem to start with 00:04:A3 which is correctly from their
 allocation: http://hwaddress.com/?q=microchip
 
-PLEASE NOTE: This requires Andrew Lindsay's NanodeMAC and EtherShield libraries in your
+Requires Arduino version 0022. v1.0 was just released a few days ago so
+i'll need to update this to work with 1.0.
+
+Requires Andrew Lindsay's NanodeMAC and EtherShield libraries in your
 Arduino libraries directory.
 
 You can download them from here:

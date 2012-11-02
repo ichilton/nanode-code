@@ -8,20 +8,18 @@
  * Ian Chilton <ian@chilton.me.uk>
  * December 2011
  *
- * Requires Arduino version 0022. v1.0 was just released a few days ago so
- * i'll need to update this to work with 1.0.
- *
- * Requires the Ports and RF12 libraries from Jeelabs in your libraries directory:
- *
- * http://jeelabs.org/pub/snapshots/Ports.zip
- * http://jeelabs.org/pub/snapshots/RF12.zip
- *
+ * Updated to Arduino v1.0 using Jeelibs by César García <cesargarciasaez@gmail.com>
+ * 
+ * Requires the Jeelibs, that combine Ports and RF12 libraries, from Jeelabs in your libraries directory:
+ * https://github.com/jcw/jeelib
+ * 
+ * For additional info: http://jeelabs.org/jeelib
+ * 
  * Information on the RF12 library - http://jeelabs.net/projects/11/wiki/RF12
  *
  ***************************************************************************/
 
-#include <Ports.h>
-#include <RF12.h>
+#include <Jeelib.h>
 
 static unsigned long payload;
 
